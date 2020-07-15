@@ -7,6 +7,6 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 - [x] Add code sniffer
 - [x] Add php-cs-fixer
 - [x] Add phpstan
-- [ ] Add CHANGLOG.md
+- [x] Add CHANGLOG.md
 - [ ] Add CONTRIBUTING.md
 - [ ] Add rector
