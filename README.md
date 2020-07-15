@@ -8,5 +8,4 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 - [x] Add php-cs-fixer
 - [x] Add phpstan
 - [x] Add CHANGLOG.md
-- [ ] Add CONTRIBUTING.md
-- [ ] Add rector
+- [x] Add CONTRIBUTING.md
