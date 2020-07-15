@@ -6,7 +6,7 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 - [x] Add `.editorconfig` file
 - [x] Add code sniffer
 - [x] Add php-cs-fixer
-- [ ] Add phpstan
+- [x] Add phpstan
 - [ ] Add CHANGLOG.md
 - [ ] Add CONTRIBUTING.md
 - [ ] Add rector
