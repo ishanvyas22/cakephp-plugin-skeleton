@@ -3,7 +3,7 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 
 ### TODO
 
-- [ ] Add `.editorconfig` file
+- [x] Add `.editorconfig` file
 - [ ] Add code sniffer
 - [ ] Add php-cs-fixer
 - [ ] Add phpstan
