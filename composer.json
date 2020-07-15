@@ -1,7 +1,6 @@
 {
     "name": "ishanvyas22/cakephp-plugin-skeleton",
     "description": "A skeleton repository to quickly start a new CakePHP plugin",
-    "type": "cakephp-plugin",
     "keywords": [
         "php",
         "cakephp",
