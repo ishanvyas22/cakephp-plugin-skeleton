@@ -5,3 +5,8 @@
 <a href="https://github.com/ishanvyas22/cakephp-plugin-skeleton"><img alt="Twitter" src="https://img.shields.io/twitter/url?style=social"></a>
 
 CakePHP plugin skeleton to quickly start with your next plugin idea.
+
+### TODO
+
+- [ ] Add installation steps, mention php, cakephp version in README.md
+- [ ] Add downloads, latest version badges
