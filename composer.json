@@ -27,5 +27,9 @@
             "YourPluginName\\Test\\": "tests/",
             "Cake\\Test\\": "vendor/cakephp/cakephp/tests/"
         }
+    },
+    "scripts": {
+        "cs-check": "phpcs --colors -p --extensions=php ./src ./tests",
+        "cs-fix": "phpcbf --colors -p --extensions=php ./src ./tests"
     }
 }
