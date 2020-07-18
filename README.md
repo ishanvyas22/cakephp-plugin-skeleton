@@ -8,7 +8,38 @@
 
 CakePHP plugin skeleton to quickly start with your next plugin idea.
 
-### TODO
+> **Requires [CakePHP 4.1.0+](https://book.cakephp.org/4/en/index.html) and [PHP 7.2.0+](https://php.net/releases/)**
 
-- [ ] Add installation steps, mention php, cakephp version in README.md
-- [x] Add downloads, latest version badges
+
+#### Create your plugin using [Composer](https://getcomposer.org):
+
+```bash
+composer require ishanvyas22/cakephp-plugin-skeleton --prefer-source MyAwesomePlugin
+```
+
+#### Check coding standard with **CakePHP Code Sniffer**:
+```bash
+composer cs-check
+```
+
+#### Auto format code with **PHP CS Fixer** & **CakePHP Code Sniffer**:
+```bash
+composer format && composer cs-fix
+```
+
+#### Fix & Check coding standard together using single command:
+```bash
+composer check
+```
+
+#### Run static analysis using **PHPStan**:
+```bash
+composer analyze
+```
+
+#### Run unit tests using **PHPUnit**
+```bash
+composer test
+```
+
+All set, deploy with confidence :muscle:
