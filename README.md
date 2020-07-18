@@ -11,4 +11,4 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 ### TODO
 
 - [ ] Add installation steps, mention php, cakephp version in README.md
-- [ ] Add downloads, latest version badges
+- [x] Add downloads, latest version badges
