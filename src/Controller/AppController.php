@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace YourPluginName\Controller;
+namespace PluginSkeleton\Controller;
 
 use App\Controller\AppController as BaseController;
 

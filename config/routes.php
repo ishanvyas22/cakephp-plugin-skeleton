@@ -8,6 +8,8 @@ Router::plugin(
     'YourPluginName',
     ['path' => '/your-plugin-routes'],
     function (RouteBuilder $routes) {
+        // Add custom routes here
+
         $routes->fallbacks(DashedRoute::class);
     }
 );

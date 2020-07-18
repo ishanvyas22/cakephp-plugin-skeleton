@@ -1,7 +1,7 @@
 <?php
 declare(strict_types=1);
 
-namespace YourPluginName;
+namespace PluginSkeleton;
 
 use Cake\Core\BasePlugin;
 use Cake\Core\PluginApplicationInterface;
@@ -9,7 +9,7 @@ use Cake\Http\MiddlewareQueue;
 use Cake\Routing\RouteBuilder;
 
 /**
- * Plugin for YourPluginName
+ * Plugin for PluginSkeleton
  */
 class Plugin extends BasePlugin
 {
@@ -24,29 +24,6 @@ class Plugin extends BasePlugin
      */
     public function bootstrap(PluginApplicationInterface $app): void
     {
-    }
-
-    /**
-     * Add routes for the plugin.
-     *
-     * If your plugin has many routes and you would like to isolate them into a separate file,
-     * you can create `$plugin/config/routes.php` and delete this method.
-     *
-     * @param \Cake\Routing\RouteBuilder $routes The route builder to update.
-     * @return void
-     */
-    public function routes(RouteBuilder $routes): void
-    {
-        $routes->plugin(
-            'YourPluginName',
-            ['path' => '/plugin-route'],
-            function (RouteBuilder $builder) {
-                // Add custom routes here
-
-                $builder->fallbacks();
-            }
-        );
-        parent::routes($routes);
     }
 
     /**
