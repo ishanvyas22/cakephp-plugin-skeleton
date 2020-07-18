@@ -5,6 +5,7 @@
 /config/Migrations/schema-dump-default.lock
 /phpunit.xml
 /phpunit.phar
+/TODO.md
 /vendor/*
 
 # OS generated files #
