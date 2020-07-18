@@ -342,7 +342,7 @@ class Installer
         $json['autoload-dev']['psr-4'] = [static::$namespace . 'Test\\' => 'tests'];
 
         if (static::$migrations === 'Y') {
-            $json['require']['cakephp/bake'] = '^1.0';
+            $json['require']['cakephp/bake'] = '^2.1';
         }
 
         $file->write($json);
