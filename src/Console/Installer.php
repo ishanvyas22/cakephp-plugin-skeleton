@@ -106,6 +106,7 @@ class Installer
 
         static::_configureInstallerProperties($io);
         static::_customizeComposerFile();
+
         $io->write(sprintf(
             "<info>The %s plugin for CakePHP was successfully created.</info>\n",
             static::$plugin
