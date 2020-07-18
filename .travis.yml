@@ -8,6 +8,8 @@ php:
 
 env:
   matrix:
+    fast_finish: true
+
     - COMPOSER_FLAGS="--prefer-lowest"
     - COMPOSER_FLAGS=""
 
