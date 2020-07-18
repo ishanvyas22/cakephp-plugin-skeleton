@@ -14,7 +14,7 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 #### Create your plugin using [Composer](https://getcomposer.org):
 
 ```bash
-composer require ishanvyas22/cakephp-plugin-skeleton --prefer-source my-awesome-plugin
+composer create-project ishanvyas22/cakephp-plugin-skeleton --prefer-source my-awesome-plugin
 ```
 
 #### Check coding standard with [CakePHP Code Sniffer](https://github.com/cakephp/cakephp-codesniffer):
