@@ -10,7 +10,6 @@ CakePHP plugin skeleton to quickly start with your next plugin idea.
 
 > **Requires [CakePHP 4.1.0+](https://book.cakephp.org/4/en/index.html) and [PHP 7.2.0+](https://php.net/releases/)**
 
-
 #### Create your plugin using [Composer](https://getcomposer.org):
 
 ```bash
