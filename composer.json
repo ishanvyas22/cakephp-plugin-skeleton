@@ -46,7 +46,6 @@
         "post-create-package-cmd": "PluginSkeleton\\Console\\Installer::postInstall",
         "post-install-cmd": "composer update",
         "check": [
-            "@format",
             "@cs-fix",
             "@cs-check"
         ],
