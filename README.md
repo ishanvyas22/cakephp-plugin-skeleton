@@ -22,9 +22,9 @@ composer create-project ishanvyas22/cakephp-plugin-skeleton --prefer-source my-a
 composer cs-check
 ```
 
-#### Auto format code with [PHP CS Fixer](https://github.com/FriendsOfPhp/PHP-CS-Fixer) & [CakePHP Code Sniffer](https://github.com/cakephp/cakephp-codesniffer):
+#### Auto format code with [CakePHP Code Sniffer](https://github.com/cakephp/cakephp-codesniffer):
 ```bash
-composer format && composer cs-fix
+composer cs-fix
 ```
 
 #### Fix & Check coding standard together using single command:

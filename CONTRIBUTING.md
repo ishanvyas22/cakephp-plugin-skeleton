@@ -35,11 +35,6 @@ composer check
 
 Above command will fix and check the code, if you want to run individually:
 
-- Automatically fix your code using [PHP CS Fixer](https://github.com/FriendsOfPhp/PHP-CS-Fixer):
-```bash
-composer format
-```
-
 - Automatically fix your code using [CakePHP Codesniffer](https://github.com/cakephp/cakephp-codesniffer):
 ```bash
 composer cs-fix
