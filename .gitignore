@@ -2,9 +2,9 @@
 ##########################
 /composer.lock
 /composer.phar
+/config/Migrations/schema-dump-default.lock
 /phpunit.xml
 /phpunit.phar
-/config/Migrations/schema-dump-default.lock
 /vendor/*
 
 # OS generated files #
