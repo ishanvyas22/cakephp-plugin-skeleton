@@ -37,7 +37,6 @@
         ],
         "cs-check": "phpcs --colors -p --extensions=php ./src ./tests",
         "cs-fix": "phpcbf --colors -p --extensions=php ./src ./tests",
-        "format": "php-cs-fixer fix",
         "analyze": "phpstan analyse --ansi --memory-limit=0",
         "test": "phpunit --colors=always"
     }
