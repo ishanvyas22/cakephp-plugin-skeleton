@@ -6,7 +6,6 @@ namespace PluginSkeleton;
 use Cake\Core\BasePlugin;
 use Cake\Core\PluginApplicationInterface;
 use Cake\Http\MiddlewareQueue;
-use Cake\Routing\RouteBuilder;
 
 /**
  * Plugin for PluginSkeleton
