@@ -379,7 +379,7 @@ class Installer
         }
 
         if ($filename === 'PLUGIN-README.md') {
-            static::_setupReadmeFile($file);
+            static::_setupReadmeFileContents($file);
         }
 
         // if (! isset($contents)) {
@@ -425,13 +425,13 @@ class Installer
     }
 
     /**
-     * Setup `README.md` file by copying template readme file
+     * Setup `README.md` file contents by copying template readme file
      * and replacing details.
      *
      * @param \SplFileInfo $file File object.
      * @return void
      */
-    private static function _setupReadmeFile($file)
+    private static function _setupReadmeFileContents($file)
     {
         $contents = file_get_contents($file);
 
