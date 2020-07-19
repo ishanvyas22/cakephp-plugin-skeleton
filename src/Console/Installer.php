@@ -441,6 +441,6 @@ class Installer
         $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
         $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
 
-        file_put_contents($file, $contents);
+        file_put_contents('README.md', $contents);
     }
 }
