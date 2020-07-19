@@ -163,7 +163,7 @@ class Installer
         static::$description = static::_ask(
             $io,
             'How would you describe your plugin?',
-            'This is used in the plugin\'s README and composer.json file'
+            'This is used in the plugin\'s README and composer.json file.'
         );
 
         while (! in_array(static::$configuration, ['Y', 'N'])) {
@@ -203,6 +203,8 @@ class Installer
                 null,
                 $githubUser
             );
+
+            $githubUser = $packagist;
 
             static::$package = sprintf(
                 '%s/%s',
@@ -328,13 +330,12 @@ class Installer
         $file = new JsonFile(Factory::getComposerFile());
         $json = $file->read();
 
-        unset($json['scripts']['pre-install-cmd']);
-        unset($json['scripts']['post-install-cmd']);
+        unset($json['scripts']['post-root-package-install']);
+        unset($json['scripts']['post-create-package-cmd']);
 
         $json['name'] = static::$package;
         $json['description'] = static::$description;
         $json['type'] = 'cakephp-plugin';
-        $json['homepage'] = $githubUrl;
         $json['authors'] = [[
             'name' => static::$author,
             'homepage' => 'https://github.com/' . static::_gitConfig('github.user'),
