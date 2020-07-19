@@ -296,7 +296,10 @@ class Installer
      */
     protected static function _ask(IOInterface $io, $question, $comment = null, $default = null)
     {
-        $f = create_function('$k, $v', 'return "\n<$k>$v</$k>\n";');
+        $f = function ($k, $v) {
+            return "\n<{$k}>{$v}</{$k}>\n";
+        };
+
         $ask = [$f('question', $question)];
 
         if ($comment !== null) {
