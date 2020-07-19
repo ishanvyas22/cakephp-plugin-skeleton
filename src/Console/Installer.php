@@ -366,7 +366,7 @@ class Installer
     {
         $filename = $file->getFilename();
         $filesToModify = [
-            'PLUGIN-README.md',
+            'README.md',
             'LICENSE.md'
         ];
 
@@ -378,7 +378,7 @@ class Installer
             return null;
         }
 
-        if ($filename === 'PLUGIN-README.md') {
+        if ($filename === 'README.md') {
             static::_setupReadmeFileContents($file);
         }
 
@@ -433,7 +433,10 @@ class Installer
      */
     private static function _setupReadmeFileContents($file)
     {
-        $contents = file_get_contents($file);
+        $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR;
+        $contents = file_get_contents($path . 'PLUGIN-README.md');
+
+        var_dump($contents);
 
         $contents = str_replace('__NAME__', static::$name, $contents);
         $contents = str_replace('__GITHUB__', static::$github, $contents);
@@ -441,6 +444,8 @@ class Installer
         $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
         $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
 
-        file_put_contents('README.md', $contents);
+        var_dump($file);
+        file_put_contents($file, $contents);
+        var_dump($contents);
     }
 }
