@@ -379,23 +379,23 @@ class Installer
         }
 
         if ($filename === 'README.md') {
-            static::_setupReadmeFileContents($file);
+            // static::_setupReadmeFileContents($file);
         }
 
-        // if (! isset($contents)) {
-        //     $contents = file_get_contents($file);
-        // }
+        if (! isset($contents)) {
+            $contents = 'Test';
+        }
 
-        // $contents = str_replace('2016 Use Muffin', '__YEAR__ __AUTHOR__', $contents);
-        // $contents = str_replace('__AUTHOR__', static::$author, $contents);
-        // $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
-        // $contents = str_replace('__GITHUB__', static::$github, $contents);
-        // $contents = str_replace('__NAME__', static::$name, $contents);
-        // $contents = str_replace('__NAMESPACE__', static::$namespace, $contents);
-        // $contents = str_replace('__PACKAGE__', static::$package, $contents);
-        // $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
-        // $contents = str_replace('__YEAR__', date('Y'), $contents);
-        // file_put_contents($file, $contents);
+        $contents = str_replace('2016 Use Muffin', '__YEAR__ __AUTHOR__', $contents);
+        $contents = str_replace('__AUTHOR__', static::$author, $contents);
+        $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
+        $contents = str_replace('__GITHUB__', static::$github, $contents);
+        $contents = str_replace('__NAME__', static::$name, $contents);
+        $contents = str_replace('__NAMESPACE__', static::$namespace, $contents);
+        $contents = str_replace('__PACKAGE__', static::$package, $contents);
+        $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
+        $contents = str_replace('__YEAR__', date('Y'), $contents);
+        file_put_contents($file, $contents);
     }
 
     /**
@@ -436,16 +436,12 @@ class Installer
         $path = dirname(dirname(__DIR__)) . DIRECTORY_SEPARATOR;
         $contents = file_get_contents($path . 'PLUGIN-README.md');
 
-        var_dump($contents);
-
         $contents = str_replace('__NAME__', static::$name, $contents);
         $contents = str_replace('__GITHUB__', static::$github, $contents);
         $contents = str_replace('__PACKAGE__', static::$package, $contents);
         $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
         $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
 
-        var_dump($file);
         file_put_contents($file, $contents);
-        var_dump($contents);
     }
 }
