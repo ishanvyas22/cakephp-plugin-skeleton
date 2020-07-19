@@ -108,7 +108,7 @@ class Installer
         static::_customizeComposerFile();
 
         $io->write(sprintf(
-            "<info>The %s plugin for CakePHP was successfully created.</info>\n",
+            "<info>The %s plugin for CakePHP created successfully.</info>\n",
             static::$plugin
         ));
     }
@@ -144,7 +144,7 @@ class Installer
         static::$author = static::_ask(
             $io,
             'What is your name?',
-            'This will be used as the author\'s name in the plugin\'s composer.json file',
+            'This will be used as the author\'s name in the plugin\'s composer.json file.',
             static::_gitConfig('user.name')
         );
 
@@ -169,7 +169,7 @@ class Installer
         while (! in_array(static::$configuration, ['Y', 'N'])) {
             static::$configuration = static::_ask(
                 $io,
-                'Does your plugin need configuration (Y/N)?',
+                'Does your plugin need configuration? (Y/N)',
                 null,
                 'Y'
             );
@@ -178,7 +178,7 @@ class Installer
         while (! in_array(static::$migrations, ['Y', 'N'])) {
             static::$migrations = static::_ask(
                 $io,
-                'Does your plugin need database migrations (Y/N)?',
+                'Does your plugin need database migrations? (Y/N)',
                 null,
                 'Y'
             );
@@ -187,7 +187,7 @@ class Installer
         while (! in_array(static::$routes, ['Y', 'N'])) {
             static::$routes = static::_ask(
                 $io,
-                'Does your plugin need custom routes (Y/N)?',
+                'Does your plugin need custom routes? (Y/N)',
                 null,
                 'Y'
             );
@@ -214,7 +214,7 @@ class Installer
         static::$github = sprintf('%s/%s', $githubUser, 'cakephp-' . $dashedName);
         static::$github = static::_ask(
             $io,
-            'What is the GitHub\'s plugin relative URL',
+            'What is the GitHub\'s plugin relative URL?',
             'For the skeleton repo for example, it\'s ishanvyas22/cakephp-plugin-skeleon',
             static::$github
         );
