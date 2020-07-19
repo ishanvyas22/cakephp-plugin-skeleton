@@ -282,6 +282,7 @@ class Installer
     {
         $directory = new RecursiveDirectoryIterator($path);
         $iterator = new RecursiveIteratorIterator($directory, RecursiveIteratorIterator::SELF_FIRST);
+
         foreach ($iterator as $file) {
             static::_replacePlaceholders($file);
         }
@@ -359,34 +360,42 @@ class Installer
      * Replaces placeholders in given file, or entire file if it's `README.md`.
      *
      * @param \SplFileInfo $file File object.
-     * @return void
+     * @return void|null
      */
     protected static function _replacePlaceholders(SplFileInfo $file)
     {
         $filename = $file->getFilename();
+        $filesToModify = [
+            'PLUGIN-README.md',
+            'LICENSE.md'
+        ];
 
-        if ($file->isDir() || strpos($filename, '.') === 0 || ! is_writable($file)) {
-            return;
+        if (
+            $file->isDir()
+            || (! is_writable($file))
+            || (! in_array($filename, $filesToModify))
+        ) {
+            return null;
         }
 
-        if ($filename === 'README.md') {
-            $contents = static::README;
+        if ($filename === 'PLUGIN-README.md') {
+            static::_setupReadmeFile($file);
         }
 
-        if (! isset($contents)) {
-            $contents = file_get_contents($file);
-        }
+        // if (! isset($contents)) {
+        //     $contents = file_get_contents($file);
+        // }
 
-        $contents = str_replace('2016 Use Muffin', '__YEAR__ __AUTHOR__', $contents);
-        $contents = str_replace('__AUTHOR__', static::$author, $contents);
-        $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
-        $contents = str_replace('__GITHUB__', static::$github, $contents);
-        $contents = str_replace('__NAME__', static::$name, $contents);
-        $contents = str_replace('__NAMESPACE__', static::$namespace, $contents);
-        $contents = str_replace('__PACKAGE__', static::$package, $contents);
-        $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
-        $contents = str_replace('__YEAR__', date('Y'), $contents);
-        file_put_contents($file, $contents);
+        // $contents = str_replace('2016 Use Muffin', '__YEAR__ __AUTHOR__', $contents);
+        // $contents = str_replace('__AUTHOR__', static::$author, $contents);
+        // $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
+        // $contents = str_replace('__GITHUB__', static::$github, $contents);
+        // $contents = str_replace('__NAME__', static::$name, $contents);
+        // $contents = str_replace('__NAMESPACE__', static::$namespace, $contents);
+        // $contents = str_replace('__PACKAGE__', static::$package, $contents);
+        // $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
+        // $contents = str_replace('__YEAR__', date('Y'), $contents);
+        // file_put_contents($file, $contents);
     }
 
     /**
@@ -416,66 +425,22 @@ class Installer
     }
 
     /**
-     * Readme file's content.
+     * Setup `README.md` file by copying template readme file
+     * and replacing details.
      *
-     * @var string
+     * @param \SplFileInfo $file File object.
+     * @return void
      */
-    public const README = <<<README
-# __NAME__
+    private static function _setupReadmeFile($file)
+    {
+        $contents = file_get_contents($file);
 
-[![Build Status](https://img.shields.io/travis/__GITHUB__/master.svg?style=flat-square)](https://travis-ci.org/__GITHUB__)
-[![Coverage](https://img.shields.io/codecov/c/github/__GITHUB__.svg?style=flat-square)](https://codecov.io/github/__GITHUB__)
-[![Total Downloads](https://img.shields.io/packagist/dt/__PACKAGE__.svg?style=flat-square)](https://packagist.org/packages/__PACKAGE__)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg?style=flat-square)](LICENSE)
+        $contents = str_replace('__NAME__', static::$name, $contents);
+        $contents = str_replace('__GITHUB__', static::$github, $contents);
+        $contents = str_replace('__PACKAGE__', static::$package, $contents);
+        $contents = str_replace('__DESCRIPTION__', static::$description, $contents);
+        $contents = str_replace('__PLUGIN__', static::$plugin, $contents);
 
-__DESCRIPTION__
-
-## Install
-
-Using [Composer][composer]:
-
-```
-composer require __PACKAGE__:1.0.x-dev
-```
-
-You then need to load the plugin. You can use the shell command:
-
-```
-bin/cake plugin load __PLUGIN__
-```
-
-or by manually adding statement shown below to your app's `config/bootstrap.php`:
-
-```php
-Plugin::load('__PLUGIN__');
-```
-
-## Usage
-
-{{@TODO documentation}}
-
-## Patches & Features
-
-* Fork
-* Mod, fix
-* Test - this is important, so it's not unintentionally broken
-* Commit - do not mess with license, todo, version, etc. (if you do change any, bump them into commits of
-their own that I can ignore when I pull)
-* Pull request - bonus point for topic branches
-
-To ensure your PRs are considered for upstream, you MUST follow the [CakePHP coding standards][standards].
-
-## Bugs & Feedback
-
-http://github.com/__GITHUB__/issues
-
-## License
-
-Copyright (c) __YEAR__, __AUTHOR__ and licensed under [The MIT License][mit].
-
-[cakephp]:http://cakephp.org
-[composer]:http://getcomposer.org
-[mit]:http://www.opensource.org/licenses/mit-license.php
-[standards]:http://book.cakephp.org/3.0/en/contributing/cakephp-coding-conventions.html
-README;
+        file_put_contents($file, $contents);
+    }
 }
