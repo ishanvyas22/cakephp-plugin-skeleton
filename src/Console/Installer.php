@@ -349,6 +349,9 @@ class Installer
             $json['require']['cakephp/bake'] = '^2.1';
         }
 
+        unset($json['keywords']);
+        $json['keywords'] = ['cakephp', 'cakephp-plugin'];
+
         $file->write($json);
     }
 
